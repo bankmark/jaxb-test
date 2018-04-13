@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema>
+    <table name="r">
+        <field name="a" type="java.lang.String">
+            <randomString/>
+        </field>
+        <field name="b" type="java.lang.Long">
+            <randomLong>
+                <min xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">-9223372036854775808</min>
+                <max xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">9223372036854775807</max>
+            </randomLong>
+        </field>
+    </table>
+    <table name="s">
+        <field name="x" type="java.lang.Integer">
+            <randomLong>
+                <min xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">-9223372036854775808</min>
+                <max xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">9223372036854775807</max>
+            </randomLong>
+        </field>
+        <field name="y" type="java.lang.Double">
+            <randomDouble>
+                <min xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">4.9E-324</min>
+                <max xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1.7976931348623157E308</max>
+            </randomDouble>
+        </field>
+    </table>
+</schema>
