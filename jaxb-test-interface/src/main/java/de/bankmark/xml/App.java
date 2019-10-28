@@ -3,10 +3,7 @@ package de.bankmark.xml;
 import de.bankmark.xml.schema.Field;
 import de.bankmark.xml.schema.Schema;
 import de.bankmark.xml.schema.Table;
-import de.bankmark.xml.schema.generators.RandomDouble;
-import de.bankmark.xml.schema.generators.RandomLong;
-import de.bankmark.xml.schema.generators.RandomString;
-import de.bankmark.xml.schema.generators.VoidGenerator;
+import de.bankmark.xml.schema.generators.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -26,16 +23,24 @@ public class App {
     var rT = new Table("r", List.of(aF, bF));
 
     var xF = new Field<>("x", Integer.class, new RandomLong());
-    var yF = new Field<>("y", Double.class, new RandomDouble());
+    var yF = new Field<>("y", Double.class, new RandomDouble(0.0D, 1.0D));
+    var zF = new Field<>("z", Long.class, new MetaGenerator(new RandomLong(1, 10)));
 
-    var sT = new Table("s", List.of(xF, yF));
+    var sT = new Table("s", List.of(xF, yF, zF));
 
     var schema = new Schema(List.of(rT, sT));
+
+    var genarator = null;
+
+    for i : List.of(1, 2) {
+
+      generateDate(schema, generator, i)
+    }
 
 
     try {
       Class<?>[] annotadedClasses = {
-              RandomDouble.class, RandomLong.class, RandomString.class, VoidGenerator.class,
+              RandomDouble.class, RandomLong.class, RandomString.class, VoidGenerator.class, MetaGenerator.class,
               Schema.class
       };
 
